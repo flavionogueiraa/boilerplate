@@ -1,0 +1,11 @@
+# Não manda os bancos
+*.sqlite3
+
+# Não manda os arquivos de configuração
+.env
+
+# Não manda a virtualenv
+*venv*
+
+# Não manda os arquivos cache
+*.pyc

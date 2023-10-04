@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block extra_styles %}
+<style>
+	li {
+		list-style-type: none;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="major">Algoritmo de Shannon Fano</h1>
+<form method="get">
+	<h2>Descrição</h2>
+	<p>
+		O algoritmo de Shannon-Fano, assim como o algoritmo de Huffman, é utilizado para
+		<strong>comprimir dados</strong>, mas utiliza uma abordagem ligeiramente diferente para
+		<strong>atribuir códigos</strong> aos símbolos. Ele foi desenvolvido
+		por <strong>Claude Shannon e Robert Fano</strong> na década de 1940.
+	</p>
+
+	<h2>Exemplo</h2>
+	<div class="row actions">
+		<div class="col-10 col-12-xsmall">
+			<input type="text" name="string" value="{{string}}" placeholder="Texto" />
+		</div>
+		<li class="col-2"><input type="submit" value="Comprimir" class="primary" /></li>
+	</div>
+	{% if compressed_data %}
+	<br>
+	<div class="table-wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>Original</th>
+					<th>Frequência</th>
+					<th>Probabilidade</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for data in compressed_data %}
+				<tr>
+					<td>{{data.original}}</td>
+					<td>{{data.count}}</td>
+					<td>{{data.probability|floatformat:2}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+</form>
+{% endblock %}
