@@ -58,7 +58,7 @@ if DEV:
         "debug_toolbar.panels.timer.TimerPanel",
     ]
 
-ROOT_URLCONF = "boilerplate.urls"
+ROOT_URLCONF = "{{project_name}}.urls"
 
 TEMPLATES = [
     {
@@ -76,13 +76,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "boilerplate.wsgi.application"
+WSGI_APPLICATION = "{{project_name}}.wsgi.application"
 
 USE_AWS = config("USE_AWS", default=False, cast=bool)
 if USE_AWS:
     AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = "django-boilerplate"
+    AWS_STORAGE_BUCKET_NAME = "django-{{project_name}}"
     AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
     AWS_S3_OBJECT_PARAMETERS = {
         "CacheControl": "max-age=86400",
@@ -100,7 +100,9 @@ if USE_AWS:
         AWS_S3_CUSTOM_DOMAIN,
         PUBLIC_MEDIA_LOCATION,
     )
-    DEFAULT_FILE_STORAGE = "boilerplate.storage_backends.PublicMediaStorage"
+    DEFAULT_FILE_STORAGE = (
+        "{{project_name}}.storage_backends.PublicMediaStorage"
+    )
 else:
     STATIC_URL = "/static/"
     MEDIA_URL = "/media/"
@@ -168,6 +170,6 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
-DEFAULT_FROM_EMAIL = "boilerplate <example@email.com.br>"
+DEFAULT_FROM_EMAIL = "{{project_name}} <example@email.com.br>"
 
 CLEAR_CACHE_ON_RESTART = True
