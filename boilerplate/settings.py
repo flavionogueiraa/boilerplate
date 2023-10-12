@@ -27,11 +27,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Apps
+    "front_assets",
     "home",
     # Libs
     "debug_toolbar",
     "django_browser_reload",
     "rest_framework",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [

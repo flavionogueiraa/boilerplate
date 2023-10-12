@@ -9,3 +9,12 @@
 
 # Não manda os arquivos cache
 *.pyc
+
+# Não manda a node_modules
+node_modules
+
+# Não manda parcel cache
+.parcel-cache
+
+# Não manda package-lock.json
+package-lock.json
