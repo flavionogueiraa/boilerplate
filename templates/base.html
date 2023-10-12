@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{% static 'front_assets/src/sass/style.css' %}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{% static 'front_assets/src/images/favicon.png' %}" />
+
+    {% block extra_style %}{% endblock %}
 </head>
 
 <body>
@@ -76,6 +78,8 @@
     <!-- Custom js for this page -->
     <script src="{% static 'front_assets/src/js/modules/dashboard.js' %}"></script>
     <!-- End custom js for this page -->
+
+    {% block extra_js %}{% endblock %}
 </body>
 
 </html>
