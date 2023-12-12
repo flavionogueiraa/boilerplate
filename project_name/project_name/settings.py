@@ -30,8 +30,14 @@ INSTALLED_APPS = [
     "front_assets",
     "home",
     # Libs
+    "advanced_filters",
     "debug_toolbar",
+    "django_admin_listfilter_dropdown",
     "django_browser_reload",
+    "django_object_actions",
+    "import_export",
+    "novadata_utils",
+    "rangefilter",
     "rest_framework",
     "widget_tweaks",
 ]
@@ -57,6 +63,8 @@ if DEV:
         "debug_toolbar.panels.sql.SQLPanel",
         "debug_toolbar.panels.timer.TimerPanel",
     ]
+
+MIDDLEWARE += ["crum.CurrentRequestUserMiddleware"]
 
 ROOT_URLCONF = "{{project_name}}.urls"
 
