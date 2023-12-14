@@ -11,3 +11,5 @@ class ProfileInline(admin.StackedInline):
     min_num = 1
 
     can_delete = False
+
+    fk_name = "usuario"
