@@ -4,7 +4,7 @@ defusedxml
 diff-match-patch
 dj-database-url==0.5.0
 Django==4.2.5
-django-admin-list-filter-dropdown==
+django-admin-list-filter-dropdown
 django-admin-rangefilter
 django-advanced-filters
 django-browser-reload==1.11.0
@@ -41,5 +41,5 @@ tablib
 tomli==2.0.1
 typing_extensions==4.8.0
 uritemplate==4.1.1
-xlrd==
+xlrd
 xlwt
