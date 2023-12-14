@@ -30,8 +30,16 @@ INSTALLED_APPS = [
     "front_assets",
     "home",
     # Libs
+    "advanced_filters",
     "debug_toolbar",
+    "django_admin_listfilter_dropdown",
     "django_browser_reload",
+    "django_object_actions",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    "import_export",
+    "novadata_utils",
+    "rangefilter",
     "rest_framework",
     "widget_tweaks",
 ]
@@ -57,6 +65,8 @@ if DEV:
         "debug_toolbar.panels.sql.SQLPanel",
         "debug_toolbar.panels.timer.TimerPanel",
     ]
+
+MIDDLEWARE += ["crum.CurrentRequestUserMiddleware"]
 
 ROOT_URLCONF = "{{project_name}}.urls"
 
@@ -131,6 +141,16 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",  # noqa E501
     "PAGE_SIZE": 10,
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "{{project_name}} API",
+    "DESCRIPTION": "{{project_name}} description",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "REDOC_DIST": "SIDECAR",
 }
 
 AUTH_PASSWORD_VALIDATORS = [
